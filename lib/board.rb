@@ -3,8 +3,8 @@ class Board
 
   def initialize
 
-    @gamestate = Array.new(10) {Array.new(10) {[0,'']}}
-
+    @gamestate = Array.new(10) {Array.new(10) {[0,0]}}
+    
 
   end
 
@@ -24,6 +24,6 @@ end
 
 
 
-ms = Board.new
+# ms = Board.new
 
-ms.render
+# ms.render

@@ -1,1 +1,10 @@
 psuedocode
+
+[0, 0]
+
+(0..9)                       1= flag
+0 to 8 num of mines          2= ?
+9 mine                       3= shown
+
+
+(0..99).to_a.shuffle[0..8]

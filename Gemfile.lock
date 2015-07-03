@@ -57,6 +57,3 @@ PLATFORMS
 DEPENDENCIES
   guard-rspec
   rspec
-
-BUNDLED WITH
-   1.10.5
