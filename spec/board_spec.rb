@@ -16,7 +16,11 @@ describe Board do
     end
 
     it "should have 9 mines" do
+      
 
+
+      mine_count = gamestate.flatten.count {|i| i == 9} 
+      expect(mine_count).to eql(9)
 
     end
 
