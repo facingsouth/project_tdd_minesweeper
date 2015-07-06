@@ -19,12 +19,7 @@ describe Minesweeper do
 
   describe '#play' do
 
-    it "should call render on the board" do
-
-      expect(minesweeper.board).to receive(:render)
-      minesweeper.play
-
-    end
+    it "should call render on the board"
 
     it "should call get_move on the player" do
 
@@ -32,6 +27,8 @@ describe Minesweeper do
       minesweeper.play
 
     end
+
+    it 'should reveal the space the player selected'
 
   end
 

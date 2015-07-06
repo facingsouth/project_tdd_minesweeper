@@ -18,18 +18,20 @@ class Player
       row = gets.strip
     end
 
-    [@row.to_i, @col.to_i]
+    [row.to_i, col.to_i]
 
   end
 
+
+  private
 
   def valid_input?(row, col)
 
     return false if row.length != 1 || col.length != 1
 
-    return false unless (0..9).include?(Integer(row)) rescue false
+    return false unless (0..9).include?(Integer(row)) rescue return false
 
-    return false unless (0..9).include?(Integer(col)) rescue false
+    return false unless (0..9).include?(Integer(col)) rescue return false
 
     return true
   end

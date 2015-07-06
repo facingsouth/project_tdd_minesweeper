@@ -1,5 +1,4 @@
 require_relative './board.rb'
-# require_relative './player.rb'
 require_relative './space.rb'
 require_relative './player.rb'
 
@@ -17,7 +16,8 @@ class Minesweeper
   def play
 
     @board.render
-    @player.get_move
+    move = @player.get_move
+    # @space[##].hidden = false
 
   end
 

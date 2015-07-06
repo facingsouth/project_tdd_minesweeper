@@ -15,7 +15,7 @@ class Space
     @render = "\u25A0 "
     @is_a_mine = false
     @number = 0
-    @hidden = false
+    @hidden = true
 
 
   end
@@ -25,7 +25,7 @@ class Space
 
     unless hidden
       if is_a_mine
-        @render = "* "
+        @render = "\u2605 "
 
       end
     end

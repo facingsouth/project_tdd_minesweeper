@@ -1,8 +1,6 @@
-require 'space'
-
 class Board
 
-  attr_reader :gamestate
+  attr_accessor :gamestate
 
   def initialize(gamestate = nil)
 
@@ -11,7 +9,7 @@ class Board
 
     # p @gamestate[90].neighbors
 
-    set_mines
+    set_mines unless gamestate
 
     calculate_gamestate
 
@@ -37,6 +35,10 @@ class Board
 
 
   private
+
+
+
+  
 
   def set_mines
 
