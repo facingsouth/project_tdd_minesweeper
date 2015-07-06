@@ -1,8 +1,12 @@
+require 'space'
+
 class Board
 
-  def initialize
+  attr_reader :gamestate
 
-    @gamestate = Array.new(100){|i| Space.new(i/10,i%10)}
+  def initialize(gamestate = nil)
+
+    @gamestate = gamestate || Array.new(100){|i| Space.new(i/10,i%10)}
 
 
     # p @gamestate[90].neighbors
