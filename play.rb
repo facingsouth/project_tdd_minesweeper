@@ -1,5 +1,8 @@
-require_relative './lib/minesweeper.rb'
+require './lib/minesweeper.rb'
 
-minesweeper = Minesweeper.new
 
-minesweeper.play
+
+m = Minesweeper.new
+
+
+m.play
