@@ -34,6 +34,16 @@ class Board
   end
 
 
+
+  def reveal_space(move)
+
+    i = move[0] * 10 + move[1]
+    puts "the index is #{i}"
+    @gamestate[i].hidden = false
+
+  end
+
+
   private
 
 

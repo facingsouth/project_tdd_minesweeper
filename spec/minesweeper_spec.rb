@@ -22,13 +22,18 @@ describe Minesweeper do
     it "should call render on the board"
 
     it "should call get_move on the player" do
-
+      allow(minesweeper.player).to receive(:get_move).and_return([2, 4])
       expect(minesweeper.player).to receive(:get_move)
       minesweeper.play
 
     end
 
-    it 'should reveal the space the player selected'
+    it 'should reveal the space the player selected' do
+      
+      allow(minesweeper.player).to receive(:get_move).and_return([2, 4])
+      expect(minesweeper.board).to receive(:reveal_space)
+      minesweeper.play
+    end
 
   end
 

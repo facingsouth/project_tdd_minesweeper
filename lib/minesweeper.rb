@@ -17,12 +17,11 @@ class Minesweeper
 
     @board.render
     move = @player.get_move
+    @board.reveal_space(move)
     # @space[##].hidden = false
+    @board.render
 
   end
-
-
-
 
 
 end
