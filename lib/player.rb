@@ -2,23 +2,23 @@ class Player
 
   def get_move
 
-    puts "Which col you want to pick? (0 to 9)"
-    col = gets.strip
+    puts "Which row you want to pick? (1 to 10)"
+    col = Integer(gets.strip) -1 rescue -1
 
-    puts "Which row you want to pick? (0 to 9)"
-    row = gets.strip
+    puts "Which col you want to pick? (1 to 10)"
+    row = Integer(gets.strip) -1 rescue -1
 
     until valid_input?(row, col)
       puts "Your input is not valid."
 
-      puts "Which col you want to pick? (0 to 9)"
-      col = gets.strip
+      puts "Which row you want to pick? (1 to 10)"
+      col = Integer(gets.strip) -1 rescue -1
 
-      puts "Which row you want to pick? (0 to 9)"
-      row = gets.strip
+      puts "Which col you want to pick? (1 to 10)"
+      row = Integer(gets.strip) -1 rescue -1
     end
 
-    [row.to_i, col.to_i]
+    (col * 10 + row)
 
   end
 
@@ -27,11 +27,11 @@ class Player
 
   def valid_input?(row, col)
 
-    return false if row.length != 1 || col.length != 1
+ 
 
-    return false unless (0..9).include?(Integer(row)) rescue return false
+    return false unless (0..9).include?(row)
 
-    return false unless (0..9).include?(Integer(col)) rescue return false
+    return false unless (0..9).include?(col)
 
     return true
   end

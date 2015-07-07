@@ -90,8 +90,9 @@ describe Board do
   describe "#reveal_space" do
 
     it "" do
-      expect(board.gamestate[24].hidden).to be(false)
       board.reveal_space([2, 4])
+      expect(board.gamestate[24].hidden).to be(false)
+      
     end
   end 
 

@@ -3,7 +3,7 @@ require 'space'
 
 describe Space do
 
-  let (:space){Space.new}
+  let (:space){Space.new(5,5)}
 
   describe "#initialize" do
 

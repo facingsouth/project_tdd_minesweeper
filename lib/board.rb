@@ -19,16 +19,20 @@ class Board
 
   def render
 
-    # system "clear"
+    system "clear"
 
     100.times do |i|
 
       @gamestate[i].set_render
-      @gamestate[i].render.concat(10) if ((i % 10) + 1) == 10
+      print ((i/10).to_s + "\n") if i%10 == 0 && i != 0
       print @gamestate[i].render
-      @gamestate[i].render.chomp
+
+      @gamestate[i].render.chomp!
 
     end
+    print "10\n"
+    print "1 2 3 4 5 6 7 8 9 10\n"
+    
 
 
   end
@@ -37,16 +41,23 @@ class Board
 
   def reveal_space(move)
 
-    i = move[0] * 10 + move[1]
-    puts "the index is #{i}"
-    @gamestate[i].hidden = false
+    @gamestate[move].hidden = false
+      if @gamestate[move].number == 0
+        reveal_neighbors(move)
+
+      end
 
   end
 
 
   private
 
-
+  def reveal_neighbors(i)
+    @gamestate[i].neighbors.each do |j|
+      reveal_space(j) unless @gamestate[j].hidden == false
+    end
+     
+  end
 
   
 
@@ -89,7 +100,7 @@ class Board
 
 
 
-  def check_nearby_mines(i)
+  def check_nearby_mines(i) 
 
 
     arr = [up?(i), down?(i), left?(i), right?(i), diag_up_right?(i), 
@@ -103,7 +114,6 @@ class Board
   end
 
   def right?(i)
-
 
     true if i%10 != 9 && @gamestate[i+1].is_a_mine == true
 

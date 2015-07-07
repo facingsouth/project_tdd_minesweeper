@@ -15,13 +15,54 @@ class Minesweeper
 
   def play
 
+    @move = 0
+
+
+    until defeat?
+      @board.render
+      @move = @player.get_move
+        # break if defeat?
+      @board.reveal_space(@move)
+    end
+
     @board.render
-    move = @player.get_move
-    @board.reveal_space(move)
-    # @space[##].hidden = false
-    @board.render
+
+
+    
+
 
   end
 
 
+  def game_end?
+
+    victory? || defeat? || quit?
+
+  end
+
+  def defeat?
+    puts @board.gamestate[@move]
+    @board.gamestate[@move].is_a_mine
+
+
+  end
+
+  def victory?
+    false
+  end
+
+  def quit?
+    false
+  end
+
+
 end
+
+
+
+
+
+
+
+
+

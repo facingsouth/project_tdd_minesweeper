@@ -41,68 +41,70 @@ class Space
   end
 
 
-  # def neighbors
+  def neighbors
 
-  #   i = @row*10 +@col
-
-
-  #   [right_neighbor(i), left_neighbor(i), up_neighbor(i), 
-  #    down_neighbor(i), diag_up_right_neighbor(i),
-  #    diag_up_left_neighbor(i), diag_down_right_neighbor(i), 
-  #    diag_down_left_neighbor(i)]
-
-  # end
-
-  # def right_neighbor(i)
+    i = @row*10 +@col
 
 
-  #   [@row, @col + 1] if i%10 != 9
+    neighbors = [right_neighbor(i), left_neighbor(i), up_neighbor(i), 
+     down_neighbor(i), diag_up_right_neighbor(i),
+     diag_up_left_neighbor(i), diag_down_right_neighbor(i), 
+     diag_down_left_neighbor(i)]
 
-  # end
+     neighbors.delete_if {|n| n == nil }
 
-  # def left_neighbor(i)
+  end
 
-
-  #   [@row, @col - 1] if i%10 != 0
-
-  # end
-
-  # def up_neighbor(i)
-
-  #   [@row - 1, @col] if i/10  != 0
-
-  # end
-
-  # def down_neighbor(i)
-
-  #   [@row + 1, @col] if i/10  != 9
-
-  # end
-
-  # def diag_up_right_neighbor(i)
-
-  #   [@row - 1, @col + 1] if i%10 != 9  && i/10 != 0
+  def right_neighbor(i)
 
 
-  # end
+    i + 1 if i%10 != 9
 
-  # def diag_up_left_neighbor(i)
+  end
 
-  #   [@row - 1, @col - 1] if i%10 != 0  && i/10 != 0
+  def left_neighbor(i)
 
-  # end
 
-  # def diag_down_right_neighbor(i)
+    i - 1 if i%10 != 0
 
-  #   [@row + 1, @col + 1] if i%10 != 9  && i/10 != 9
+  end
 
-  # end
+  def up_neighbor(i)
 
-  # def diag_down_left_neighbor(i)
+    i - 10 if i/10  != 0
 
-  #   [@row + 1, @col - 1] if i%10 != 0  && i/10 != 9
+  end
 
-  # end
+  def down_neighbor(i)
+
+    i + 10 if i/10  != 9
+
+  end
+
+  def diag_up_right_neighbor(i)
+
+    i - 9 if i%10 != 9  && i/10 != 0
+
+
+  end
+
+  def diag_up_left_neighbor(i)
+
+    i - 11 if i%10 != 0  && i/10 != 0
+
+  end
+
+  def diag_down_right_neighbor(i)
+
+    i + 11 if i%10 != 9  && i/10 != 9
+
+  end
+
+  def diag_down_left_neighbor(i)
+
+    i + 9 if i%10 != 0  && i/10 != 9
+
+  end
 
 
 

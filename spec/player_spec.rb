@@ -20,7 +20,7 @@ describe Player do
 
       allow(player).to receive(:gets).and_return("2","4")
       allow(player).to receive(:valid_input?).and_return(true)
-      expect(player).to receive(:valid_input?).with("4","2")
+      expect(player).to receive(:valid_input?).with(4,2)
 
       player.get_move
 
@@ -29,9 +29,9 @@ describe Player do
 
     specify 'valid input should return true if valid and false if not' do
 
-      allow(player).to receive(:gets).and_return("adf", "b", "2", "3","abc","def")
+      allow(player).to receive(:gets).and_return("2", "3","abc","def")
 
-      expect(player.get_move).to eql([3,2])
+      expect(player.get_move).to eql(23)
 
 
     end
