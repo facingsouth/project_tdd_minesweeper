@@ -1,6 +1,7 @@
 require_relative './board.rb'
 require_relative './space.rb'
 require_relative './player.rb'
+require 'yaml'
 
 class Minesweeper
 
@@ -10,6 +11,7 @@ class Minesweeper
 
     @board = Board.new
     @player = Player.new
+    @file = File.new("save.txt", "w") 
 
   end
 
@@ -23,6 +25,7 @@ class Minesweeper
       @move = @player.get_move
         # break if defeat?
       @board.reveal_space(@move)
+      save
     end
 
     @board.render
@@ -53,6 +56,15 @@ class Minesweeper
 
   def quit?
     false
+  end
+
+
+  def save
+
+    File.open("save.txt", "w") do |file|
+      file.write (@board.gamestate.to_yaml)
+    end
+
   end
 
 
